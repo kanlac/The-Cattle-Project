@@ -1,5 +1,7 @@
 package model;
 
+import model.type.Sex;
+
 import java.io.Serializable;
 
 public class Cattle implements Serializable {
@@ -36,6 +38,3 @@ public class Cattle implements Serializable {
 
 }
 
-enum Sex {
-    Male, Female;
-}
