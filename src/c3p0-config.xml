@@ -5,7 +5,7 @@
 
     <default-config>
         <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql:///DBName</property>
+        <property name="jdbcUrl">jdbc:mysql:///CattleProject</property>
         <property name="user">root</property>
         <property name="password">tbu33p6r9</property>
         <property name="initialPoolSize">5</property>
