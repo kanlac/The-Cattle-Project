@@ -4,19 +4,21 @@ import java.io.Serializable;
 
 public class Admin implements Serializable {
 
-    private String a_id;
+    private String id;
     private String username;
     private String password;
-    private String job;
+    private String position;
+
+    private String phone;
 
     /** Getters and Setters */
 
-    public String getA_id() {
-        return a_id;
+    public String getId() {
+        return id;
     }
 
-    public void setA_id(String a_id) {
-        this.a_id = a_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -35,12 +37,20 @@ public class Admin implements Serializable {
         this.password = password;
     }
 
-    public String getJob() {
-        return job;
+    public String getPosition() {
+        return position;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

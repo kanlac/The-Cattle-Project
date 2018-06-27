@@ -1,39 +1,83 @@
 package model;
 
-import model.type.Sex;
-
 import java.io.Serializable;
+import java.util.Date;
 
 public class Cattle implements Serializable {
 
-    private String c_id;
-    private String number;
-    private Sex sex;
+    private String id;
+    private char sex;
+    private Date birthday;
+    private Double weight;
+    private String variety;
+    private String father_id;
+    private String mother_id;
+    private String children_id;
 
     /** Getters and Setters */
 
-    public String getC_id() {
-        return c_id;
+    public String getId() {
+        return id;
     }
 
-    public void setC_id(String c_id) {
-        this.c_id = c_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public Sex getSex() {
+    public char getSex() {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(char sex) {
         this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public String getVariety() {
+        return variety;
+    }
+
+    public void setVariety(String variety) {
+        this.variety = variety;
+    }
+
+    public String getFather_id() {
+        return father_id;
+    }
+
+    public void setFather_id(String father_id) {
+        this.father_id = father_id;
+    }
+
+    public String getMother_id() {
+        return mother_id;
+    }
+
+    public void setMother_id(String mother_id) {
+        this.mother_id = mother_id;
+    }
+
+    public String getChildren_id() {
+        return children_id;
+    }
+
+    public void setChildren_id(String children_id) {
+        this.children_id = children_id;
     }
 
 }
