@@ -21,7 +21,7 @@ public class AdminDAO {
 
         try {
             conn = C3P0Util.getConnection();
-            qr.query(conn, sql, new BeanHandler<>(Admin.class), name, password);
+            admin = qr.query(conn, sql, new BeanHandler<>(Admin.class), name, password);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,6 +1,5 @@
 package dao;
 
-import model.type.Sex;
 import org.apache.commons.dbutils.QueryRunner;
 import util.C3P0Util;
 
@@ -13,14 +12,14 @@ public class CattleDAO {
     private static String sql;
     private static Connection conn;
 
-    public static Boolean append(String number, Sex sex) {
+    public static Boolean append(String number, char sex) {
         qr = new QueryRunner();
         sql = "INSERT INTO cattle (number, sex) VALUES (?, ?)";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = qr.update(conn, sql, number, sex.name());
+            row = qr.update(conn, sql, number, sex);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -29,14 +28,14 @@ public class CattleDAO {
         return row > 0;
     }
 
-    public static Boolean alter(String id, String number, Sex sex) {
+    public static Boolean alter(String id, String number, char sex) {
         qr = new QueryRunner();
         sql = "UPDATE cattle SET number = ?, sex = ? WHERE id = ?";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = qr.update(conn, sql, number, sex.name(), id);
+            row = qr.update(conn, sql, number, sex, id);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
