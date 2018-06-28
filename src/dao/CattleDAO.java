@@ -8,18 +8,18 @@ import java.sql.SQLException;
 
 public class CattleDAO {
 
-    private static QueryRunner qr;
-    private static String sql;
-    private static Connection conn;
+    private QueryRunner run;
+    private String sql;
+    private Connection conn;
 
-    public static Boolean append(String number, char sex) {
-        qr = new QueryRunner();
+    public Boolean append(String number, char sex) {
+        run = new QueryRunner();
         sql = "INSERT INTO cattle (number, sex) VALUES (?, ?)";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = qr.update(conn, sql, number, sex);
+            row = run.update(conn, sql, number, sex);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -28,14 +28,14 @@ public class CattleDAO {
         return row > 0;
     }
 
-    public static Boolean alter(String id, String number, char sex) {
-        qr = new QueryRunner();
+    public Boolean alter(String id, String number, char sex) {
+        run = new QueryRunner();
         sql = "UPDATE cattle SET number = ?, sex = ? WHERE id = ?";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = qr.update(conn, sql, number, sex, id);
+            row = run.update(conn, sql, number, sex, id);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,14 +44,14 @@ public class CattleDAO {
         return row > 0;
     }
 
-    public static Boolean remove(String id) {
-        qr = new QueryRunner();
+    public Boolean remove(String id) {
+        run = new QueryRunner();
         sql = "DELETE FROM cattle WHERE id = ?";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = qr.update(conn, sql, id);
+            row = run.update(conn, sql, id);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

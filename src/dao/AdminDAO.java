@@ -10,18 +10,18 @@ import java.sql.SQLException;
 
 public class AdminDAO {
 
-    private static QueryRunner qr;
-    private static String sql;
-    private static Connection conn;
+    private QueryRunner run;
+    private String sql;
+    private Connection conn;
 
-    public static Boolean login(String name, String password) {
-        qr = new QueryRunner();
+    public Boolean login(String name, String password) {
+        run = new QueryRunner();
         sql = "SELECT * FROM admini WHERE name = ? AND password = ?";
         Admin admin = null;
 
         try {
             conn = C3P0Util.getConnection();
-            admin = qr.query(conn, sql, new BeanHandler<>(Admin.class), name, password);
+            admin = run.query(conn, sql, new BeanHandler<>(Admin.class), name, password);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

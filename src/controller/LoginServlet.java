@@ -16,7 +16,8 @@ public class LoginServlet extends HttpServlet {
         String name_content = request.getParameter("name_field");
         String password_content = request.getParameter("password_field");
 
-        if (AdminDAO.login(name_content, password_content)) {
+        AdminDAO dao = new AdminDAO();
+        if (dao.login(name_content, password_content)) {
 
             System.out.println("登录成功！");
 
