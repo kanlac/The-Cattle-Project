@@ -1,0 +1,17 @@
+.nav-item {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.nav-item a {
+    text-decoration: none;
+    float: right;
+}
+
+.pic-block {
+
+}
+
+.headline-block {
+
+}
