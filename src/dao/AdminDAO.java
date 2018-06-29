@@ -16,7 +16,7 @@ public class AdminDAO {
 
     public Boolean login(String name, String password) {
         run = new QueryRunner();
-        sql = "SELECT * FROM admini WHERE name = ? AND password = ?";
+        sql = "SELECT * FROM admini WHERE username = ? AND password = ?";
         Admin admin = null;
 
         try {
