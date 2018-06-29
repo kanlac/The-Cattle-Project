@@ -19,8 +19,8 @@ public class LogoutServlet extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         out.print("<p>已成功登出</p>");
-        out.print("<a href=''>返回主页</a>");
-        out.print("<a href=''>重新登录</a>");
+        out.print("<a href='/home'>返回主页</a>");
+        out.print("<a href='/login.jsp'>重新登录</a>");
         out.close();
     }
 
