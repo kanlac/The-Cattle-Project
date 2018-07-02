@@ -1,12 +1,14 @@
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
     <title>网站标题</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="../reset.css" />
 </head>
 <body>
-
-    <p> </p>
 
     <div class="nav-item">
         <a href="#">关于</a>
@@ -20,7 +22,7 @@
                 <img src="#" alt="Some picture...">
             </a><br/>
 
-            <%--<input type="button" value="<%=i%>"/>--%>
+            <input type="button" value=""/>
 
         </div>
 

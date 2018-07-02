@@ -6,6 +6,7 @@
 .nav-item a {
     text-decoration: none;
     float: right;
+    color: red;
 }
 
 .pic-block {
