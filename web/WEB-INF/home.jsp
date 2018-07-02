@@ -25,6 +25,10 @@
         </div>
 
         <div class="headline-block">
+            <h2>仂猀呧觖陏</h2>
+            <core:forEach var="post" items="${requestScope.posts}" end="2">
+                <p><core:out value="${post.title}"/></p>
+            </core:forEach>
 
         </div>
     </div>

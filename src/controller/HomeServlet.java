@@ -20,9 +20,7 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PostDAO dao = new PostDAO();
         List<Post> posts = dao.fetch(5);
-        System.out.println("size: " + posts.size());
         request.setAttribute("posts", posts);
         request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-
     }
 }

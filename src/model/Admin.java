@@ -8,7 +8,6 @@ public class Admin implements Serializable {
     private String username;
     private String password;
     private String position;
-
     private String phone;
 
     /** Getters and Setters */
