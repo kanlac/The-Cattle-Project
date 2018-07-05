@@ -6,31 +6,19 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import util.C3P0Util;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 public class PostDAO {
 
-    private QueryRunner run;
-    private String sql;
-    private Connection conn;
-
+    @SuppressWarnings("unchecked")
     public List<Post> fetch(int limit) {
-        run = new QueryRunner();
-        sql = "SELECT * FROM post LIMIT ?";
-        List<Post> posts = null;
+        String sql = "SELECT * FROM post LIMIT ?";
+        BeanListHandler<Object> postsHandler = new BeanListHandler<>(Post.class);
 
-        try {
-            conn = C3P0Util.getConnection();
-            posts = run.query(conn, sql, new BeanListHandler<>(Post.class), limit);
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        return posts;
+        List<?> result;
+        result = new Perform().queryBeans(sql, new Object[] { limit }, postsHandler);
+        return (List<Post>)result;
     }
 
     public List<Post> fetch() {
@@ -38,51 +26,24 @@ public class PostDAO {
     }
 
     public Post get(String id) {
-        run = new QueryRunner();
-        sql = "SELECT * FROM post WHERE id = ?";
-        Post post = null;
+        String sql = "SELECT * FROM post WHERE id = ?";
+        BeanHandler<Object> postHandler = new BeanHandler<>(Post.class);
 
-        try {
-            conn = C3P0Util.getConnection();
-            post = run.query(conn, sql, new BeanHandler<>(Post.class), id);
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return post;
+        Object result;
+        result = new Perform().queryBean(sql, new Object[] { id }, postHandler);
+        return (Post)result;
     }
 
     public Boolean alter(String id, String title, String author, String content) {
-        run = new QueryRunner();
-        sql = "UPDATE post SET title = ?, author = ?, content = ? WHERE id = ?";
-        int row = 0;
+        String sql = "UPDATE post SET title = ?, author = ?, content = ? WHERE id = ?";
 
-        try {
-            conn = C3P0Util.getConnection();
-            row = run.update(conn, sql, title, author, content, id);
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return row > 0;
+        return null;
     }
 
     public Boolean remove(String id) {
-        run = new QueryRunner();
-        sql = "DELETE FROM post WHERE id = ?";
-        int row = 0;
+        String sql = "DELETE FROM post WHERE id = ?";
 
-        try {
-            conn = C3P0Util.getConnection();
-            row = run.update(conn, sql, id);
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return row > 0;
+        return new Perform().update(sql, new Object[] {id});
     }
 
 }
