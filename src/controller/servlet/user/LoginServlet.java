@@ -1,4 +1,4 @@
-package controller;
+package controller.servlet.user;
 
 import dao.AdminDAO;
 

@@ -1,4 +1,4 @@
-package controller;
+package controller.servlet.navigation;
 
 import dao.PostDAO;
 import model.Post;
