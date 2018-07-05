@@ -24,17 +24,6 @@ public class CattleFilter implements Filter {
         String mother_id = req.getParameter("mother_id");
         String children_id = req.getParameter("children_id");
 
-        System.out.println("---- param list ----");
-        System.out.println("id = " + id);
-        System.out.println("sex = " + sex);
-        System.out.println("birthday = " + birthday);
-        System.out.println("weight = " + weight);
-        System.out.println("variety = " + variety);
-        System.out.println("father_id = " + father_id);
-        System.out.println("mother_id = " + mother_id);
-        System.out.println("children_id = " + children_id);
-        System.out.println("------");
-
         /** Legitimacy check **/
         if (id.equals("") || sex.equals("") || birthday.equals("") || weight.equals("") || variety.equals("")) {
             throw new IllegalArgumentException("At least one of mandatory fields is null.");
