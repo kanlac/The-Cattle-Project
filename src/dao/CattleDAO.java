@@ -12,14 +12,14 @@ public class CattleDAO {
     private String sql;
     private Connection conn;
 
-    public Boolean append(String number, char sex) {
+    public Boolean append(String id, char sex) {
         run = new QueryRunner();
         sql = "INSERT INTO cattle (number, sex) VALUES (?, ?)";
         int row = 0;
 
         try {
             conn = C3P0Util.getConnection();
-            row = run.update(conn, sql, number, sex);
+            row = run.update(conn, sql, id, sex);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
