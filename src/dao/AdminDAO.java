@@ -8,6 +8,7 @@ import util.C3P0Util;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+@SuppressWarnings("Duplicates")
 public class AdminDAO {
 
     private QueryRunner run;
