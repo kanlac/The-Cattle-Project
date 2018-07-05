@@ -8,7 +8,7 @@
 
     <form action="/LoginServlet" method="post">
         <input name="name_field" type="text"/>
-        <input name="password_field" type="text"/>
+        <input name="password_field" type="password"/>
         <button type="submit">登录</button>
     </form>
 </body>
