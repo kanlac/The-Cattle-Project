@@ -6,7 +6,7 @@ import java.util.Date;
 public class Cattle implements Serializable {
 
     private String id;
-    private char sex;
+    private String sex;
     private Date birthday;
     private Double weight;
     private String variety;
@@ -19,7 +19,7 @@ public class Cattle implements Serializable {
     public Cattle() {
     }
 
-    public Cattle(String id, char sex, Date birthday, Double weight, String variety, String father_id, String mother_id, String children_id) {
+    public Cattle(String id, String sex, Date birthday, Double weight, String variety, String father_id, String mother_id, String children_id) {
         this.id = id;
         this.sex = sex;
         this.birthday = birthday;
@@ -40,11 +40,11 @@ public class Cattle implements Serializable {
         this.id = id;
     }
 
-    public char getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(char sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 

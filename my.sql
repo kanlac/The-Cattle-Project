@@ -12,10 +12,10 @@ CREATE TABLE admini (
 
 CREATE TABLE cattle (
 	id VARCHAR(20) PRIMARY KEY,
-	sex CHAR(1) NOT NULL,
-	birthday DATE,
-	weight NUMERIC(5,2),
-	variety NVARCHAR(20),
+	sex VARCHAR(1) NOT NULL,
+	birthday DATE NOT NULL,
+	weight NUMERIC(5,2) NOT NULL,
+	variety NVARCHAR(20) NOT NULL,
 	father_id VARCHAR(20),
 	mother_id VARCHAR(20),
 	children_id VARCHAR(200),
