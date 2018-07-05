@@ -4,6 +4,7 @@ import model.Cattle;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -40,8 +41,8 @@ public class CattleFilter implements Filter {
         } else {
             System.out.println("All element are legal.");
 
-            Cattle cattle = new Cattle(id, sex.charAt(0), new Date(Long.parseLong(birthday)), Double.parseDouble(weight), variety, father_id, mother_id, children_id);
-            req.setAttribute("cattle", cattle);
+            Cattle cattle = new Cattle(id, sex.substring(0, 1), new Date(Long.parseLong(birthday.replaceAll("-", ""))), Double.parseDouble(weight), variety, father_id, mother_id, children_id);
+            ((HttpServletRequest) req).getSession().getServletContext().setAttribute("cattle", cattle);
 
             chain.doFilter(req, resp);
         }
