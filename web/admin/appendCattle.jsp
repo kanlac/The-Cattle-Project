@@ -7,7 +7,7 @@
     <h1>添加</h1>
 
     <form action="/AppendCattleServlet" method="post">
-        编号：<input type="text" name="id"/><br/>
+        编号：<input type="number" name="id"/><br/>
         性别：<input type="radio" name="sex" value="m"/>公 <input type="radio" name="sex" value="f"/>母 <br/>
         生日：<input type="date" name="birthday"/><br/>
         体重：<input type="number" name="weight"/>kg<br/>
