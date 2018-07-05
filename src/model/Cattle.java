@@ -14,6 +14,22 @@ public class Cattle implements Serializable {
     private String mother_id;
     private String children_id;
 
+    /** Constructors **/
+
+    public Cattle() {
+    }
+
+    public Cattle(String id, char sex, Date birthday, Double weight, String variety, String father_id, String mother_id, String children_id) {
+        this.id = id;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.weight = weight;
+        this.variety = variety;
+        this.father_id = father_id;
+        this.mother_id = mother_id;
+        this.children_id = children_id;
+    }
+
     /** Getters and Setters */
 
     public String getId() {
