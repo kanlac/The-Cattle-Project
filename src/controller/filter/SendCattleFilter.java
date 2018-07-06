@@ -9,13 +9,12 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-@WebFilter(filterName = "CattleFilter", urlPatterns = {"/AppendCattleServlet", "/AlterCattleServlet"})
-public class CattleFilter implements Filter {
+@WebFilter(filterName = "SendCattleFilter", urlPatterns = {"/SendCattleServlet"})
+public class SendCattleFilter implements Filter {
     public void destroy() {
     }
 
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException, IllegalArgumentException {
-
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         String id = req.getParameter("id");
         String sex = req.getParameter("sex");
         String birthday = req.getParameter("birthday");
@@ -46,7 +45,6 @@ public class CattleFilter implements Filter {
 
             chain.doFilter(req, resp);
         }
-
     }
 
     public void init(FilterConfig config) throws ServletException {

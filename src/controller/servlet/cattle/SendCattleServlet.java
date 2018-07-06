@@ -11,20 +11,32 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "AppendCattleServlet", urlPatterns = {"/AppendCattleServlet"})
-public class AppendCattleServlet extends HttpServlet {
+@WebServlet(name = "SendCattleServlet", urlPatterns = "/SendCattleServlet")
+public class SendCattleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Object cattleObj = request.getSession().getServletContext().getAttribute("cattle");
         Cattle cattle = (cattleObj instanceof Cattle ? (Cattle)cattleObj : null);
         if (cattle == null) throw new ServletException("Casting cattleObj failed.");
 
-        if (new CattleDAO().append(cattle)) {
-            PrintWriter out = response.getWriter();
-            out.print("<p>添加成功</p>");
-            out.print("<a href='/admin/query.jsp'>返回</a>");
-            out.close();
+        CattleDAO dao = new CattleDAO();
+        PrintWriter out = response.getWriter();
+
+        if (dao.exist(cattle.getId())) {
+            if (dao.alter(cattle)) {
+                out.print("<p>更改成功</p>");
+                out.print("<a href='/admin/query.jsp'>返回</a>");
+                out.close();
+            } else {
+                throw new ServletException("Failed appending a cattle bean object.");
+            }
         } else {
-            throw new ServletException("Failed appending a cattle bean object.");
+            if (dao.append(cattle)) {
+                out.print("<p>添加成功</p>");
+                out.print("<a href='/admin/query.jsp'>返回</a>");
+                out.close();
+            } else {
+                throw new ServletException("Failed altering cattle.");
+            }
         }
     }
 
