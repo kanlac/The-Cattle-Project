@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-@WebFilter(filterName = "CattleFilter")
+@WebFilter(filterName = "CattleFilter", urlPatterns = {"/AppendCattleServlet", "/AlterCattleServlet"})
 public class CattleFilter implements Filter {
     public void destroy() {
     }

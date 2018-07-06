@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebFilter(filterName = "PermissionFilter")
+@WebFilter(filterName = "PermissionFilter", urlPatterns = {"/admin/*"})
 public class PermissionFilter implements Filter {
     public void destroy() {
     }
