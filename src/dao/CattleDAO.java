@@ -2,6 +2,7 @@ package dao;
 
 import model.Cattle;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import util.C3P0Util;
 
 import java.sql.Connection;
@@ -34,10 +35,24 @@ public class CattleDAO {
     }
 
     public Cattle get(String id) {
-        return new Cattle();
+        run = new QueryRunner();
+        sql = "SELECT * FROM cattle WHERE id = ?";
+        params = new Object[] { id };
+        Cattle res = null;
+
+        try {
+            conn = C3P0Util.getConnection();
+            res = run.query(conn, sql, new BeanHandler<>(Cattle.class), params);
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return res;
     }
 
     public Boolean exist(String id) {
+        // todo
         return false;
     }
 
