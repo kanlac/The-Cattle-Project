@@ -37,6 +37,10 @@ public class CattleDAO {
         return new Cattle();
     }
 
+    public Boolean exist(String id) {
+        return false;
+    }
+
     public Boolean alter(Cattle cattle) {
         run = new QueryRunner();
         sql = "UPDATE cattle SET sex = ?, birthday = ?, weight = ?, variety = ?, father_id = ?, mother_id = ?, children_id = ? WHERE id = ?";
