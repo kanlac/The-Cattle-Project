@@ -1,9 +1,12 @@
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>添加牛的信息</title>
 </head>
 <body>
+    <p>欢迎你，<core:out value="${sessionScope.account}"/></p><a href="/LogoutServlet">注销</a><br/>
+
     <h1>添加</h1>
 
     <form action="/SendCattleServlet" method="post">
