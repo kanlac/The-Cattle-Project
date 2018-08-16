@@ -1,6 +1,10 @@
 package dao;
 
+import model.CattlePOJO;
 import org.neo4j.driver.v1.*;
+
+import java.util.HashMap;
+import java.util.HashSet;
 
 import static org.neo4j.driver.v1.Values.parameters;
 
@@ -32,6 +36,28 @@ public class CattleGraph {
         }
     }
 
+    private HashSet<CattlePOJO> get(String c_id) {
+        HashSet<CattlePOJO> pojoSet = new HashSet<>();
+        try (Session session = driver.session()) {
+            StatementResult res = session.run("MATCH (target:Cattle) WHERE target.c_id = {c_id} RETURN target.c_id AS c_id, target.sex AS sex, target.birthday AS birthday, target.weight AS weight", Values.parameters("c_id", c_id));
+            while (res.hasNext()) {
+                Record record = res.next();
+
+                String id = record.get("c_id").asString();
+                String sex = record.get("sex").asString();
+                String birthday = record.get("birthday").asString();
+                String weight = record.get("weight").asString();
+
+                pojoSet.add(new CattlePOJO(id, sex, birthday, weight));
+            }
+        }
+        return pojoSet;
+    }
+
+    private HashMap<String, Object> targetGraph(String c_id) {
+        return null;
+    }
+
     public void close() {
         driver.close();
     }
@@ -40,7 +66,14 @@ public class CattleGraph {
     // Test
     public static void main(String[] args) {
         CattleGraph graph = new CattleGraph("bolt://localhost:7687", "neo4j", "123456");
-        graph.printCattle();
+        HashSet<CattlePOJO> res = graph.get("006");
+        if (res == null) {
+            System.out.println("is null");
+        } else {
+            for (CattlePOJO c : res) {
+                System.out.println(c);
+            }
+        }
         graph.close();
     }
 
