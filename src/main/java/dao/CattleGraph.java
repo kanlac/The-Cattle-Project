@@ -7,23 +7,30 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import static org.neo4j.driver.v1.Values.parameters;
+import static config.Constants.*;
 
 public class CattleGraph {
 
     Driver driver;
 
-    public CattleGraph(String uri, String user, String password) {
-        driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
-
+    public CattleGraph() {
+        driver = GraphDatabase.driver(neo4j_uri, AuthTokens.basic(neo4j_user, neo4j_password));
     }
 
-    private void addCattle(String id, String sex, String birthday, String weight) {
+    private boolean addCattle(String id, String sex, String birthday, String weight) {
         try (Session session = driver.session()) {
-            try (Transaction tx = session.beginTransaction()) {
-                tx.run("MERGE (a:Cattle {c_id:{c}, sex:{s}, birthday:{b}, weight:{w}})", parameters("c", id, "s", sex, "b", birthday, "w", weight));
-                tx.success();
-            }
+            StatementResult res = session.run("MERGE (a:Cattle {c_id:{c}, sex:{s}, birthday:{b}, weight:{w}})", parameters("c", id, "s", sex, "b", birthday, "w", weight));
+            if (res.hasNext()) return true;
         }
+        return false;
+    }
+
+    private boolean alterCattle(CattlePOJO cattle) {
+        try (Session session = driver.session()) {
+            StatementResult res = session.run("MATCH (target:Cattle) WHERE target.c_id = {c} SET target.sex = {s}, target.birthday = {b}, target.weight = {w} RETURN target", Values.parameters("c", cattle.getC_id(), "s", cattle.getSex(), "b", cattle.getBirthday(), "w", cattle.getWeight()));
+            if (res.hasNext()) return true;
+        }
+        return false;
     }
 
     private void printCattle() {
@@ -65,7 +72,7 @@ public class CattleGraph {
 
     // Test
     public static void main(String[] args) {
-        CattleGraph graph = new CattleGraph("bolt://localhost:7687", "neo4j", "123456");
+        CattleGraph graph = new CattleGraph();
         HashSet<CattlePOJO> res = graph.get("006");
         if (res == null) {
             System.out.println("is null");
