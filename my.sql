@@ -1,3 +1,5 @@
+-- Deprecated file
+
 CREATE SCHEMA CattleProject;
 
 USE CattleProject;
