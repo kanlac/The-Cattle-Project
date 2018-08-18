@@ -10,7 +10,6 @@ import java.util.Set;
 @NodeEntity(label = "Cattle")
 public class CattlePOJO {
 
-    @Id @GeneratedValue
     private Long id;
     private String sex;
     @DateLong
@@ -21,8 +20,8 @@ public class CattlePOJO {
     @Relationship(type = "CHILD", direction = Relationship.INCOMING)
     private Set<CattlePOJO> parent;
 
-    /*** No Arg Constructor ***/
-    CattlePOJO() {}
+    // No Arg Constructor
+    public CattlePOJO() {}
 
     @Override
     public String toString() {
