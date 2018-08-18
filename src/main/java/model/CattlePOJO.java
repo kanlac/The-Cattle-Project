@@ -2,10 +2,9 @@ package model;
 
 import org.neo4j.ogm.annotation.*;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
+import scala.Char;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @NodeEntity(label = "Cattle")
 public class CattlePOJO {
@@ -16,9 +15,9 @@ public class CattlePOJO {
     private Date birthday;
     private Double weight;
     @Relationship(type = "CHILD")
-    private Set<CattlePOJO> children;
+    private ArrayList<CattlePOJO> children;
     @Relationship(type = "CHILD", direction = Relationship.INCOMING)
-    private Set<CattlePOJO> parents;
+    private ArrayList<CattlePOJO> parents;
 
     // Mandatory: No Arg Constructor
     public CattlePOJO() {}
@@ -31,14 +30,31 @@ public class CattlePOJO {
 
     public void addChild(CattlePOJO child) {
         if (this.children == null) {
-            this.children = new HashSet<CattlePOJO>();
+            this.children = new ArrayList<>();
         }
         this.children.add(child);
     }
 
+    public List<Map<Character, CattlePOJO>> getSpouseAndChildren() {
+        if (this.getChildren() == null) return null;
+
+        List<Map<Character, CattlePOJO>> res = new ArrayList<>();
+
+        for (CattlePOJO child : this.getChildren()) {
+            Map<Character, CattlePOJO> map = new HashMap<>();
+            map.put('c', child);
+            for (CattlePOJO parent : child.getParents()) {
+                if (parent != this) map.put('s', parent);
+            }
+            res.add(map);
+        }
+
+        return res;
+    }
+
     @Override
     public String toString() {
-        return "id: " + this.id + "\nsex: " + sex + "\nbirthday: " + birthday + "\nweight: " + weight;
+        return "POJO<<<id: " + this.id + " sex: " + sex + " birthday: " + birthday + " weight: " + weight + ">>>";
     }
 
     /*** Getters and Setters ***/
@@ -58,5 +74,12 @@ public class CattlePOJO {
     public Double getWeight() {
         return weight;
     }
-}
 
+    public ArrayList<CattlePOJO> getChildren() {
+        return children;
+    }
+
+    public ArrayList<CattlePOJO> getParents() {
+        return parents;
+    }
+}
