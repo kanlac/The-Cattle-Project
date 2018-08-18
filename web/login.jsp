@@ -5,7 +5,6 @@
 </head>
 <body>
     <h1>登录</h1>
-    test english words.
 
     <form action="/LoginServlet" method="post">
         <input name="name_field" type="text"/>

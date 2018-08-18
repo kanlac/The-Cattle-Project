@@ -8,7 +8,7 @@
 <body>
     <p>欢迎你，<core:out value="${sessionScope.account}"/><a href="/LogoutServlet">注销</a></p><br/>
 
-    <a href="appendCattle.jsp">添加牛</a>
+    <a href="appendCattle.jsp">录入新信息</a>
     <form action="/QueryCattleServlet" method="post">
         编号：<input type="number" name="id"/>
         <input type="submit" value="查询">
