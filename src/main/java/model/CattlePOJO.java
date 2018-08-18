@@ -1,29 +1,50 @@
 package model;
 
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
+import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.typeconversion.DateLong;
+import org.neo4j.ogm.annotation.typeconversion.DateString;
 
-@NodeEntity
+import java.util.Date;
+import java.util.Set;
+
+@NodeEntity(label = "Cattle")
 public class CattlePOJO {
-    private String c_id;
+
+    @Id @GeneratedValue
+    private Long id;
     private String sex;
-    private String birthday;
-    private String weight;
+    @DateLong
+    private Date birthday;
+    private Double weight;
+    @Relationship(type = "CHILD")
+    private Set<CattlePOJO> child;
+    @Relationship(type = "CHILD", direction = Relationship.INCOMING)
+    private Set<CattlePOJO> parent;
 
-
-    public CattlePOJO(String c_id, String sex, String birthday, String weight) {
-        this.c_id = c_id;
-        this.sex = sex;
-        this.birthday = birthday;
-        this.weight = weight;
-    }
+    /*** No Arg Constructor ***/
+    CattlePOJO() {}
 
     @Override
     public String toString() {
-        return "c_id: " + this.c_id + "\nsex: " + sex + "\nbirthday: " + birthday + "\nweight: " + weight;
+        return "c_id: " + this.id + "\nsex: " + sex + "\nbirthday: " + birthday + "\nweight: " + weight;
     }
 
-    @Relationship(type = "CHILD")
-    private CattlePOJO child;
+    /*** Getters and Setters ***/
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
 }
 
