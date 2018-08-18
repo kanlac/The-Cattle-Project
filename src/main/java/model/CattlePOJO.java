@@ -2,9 +2,9 @@ package model;
 
 import org.neo4j.ogm.annotation.*;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
-import org.neo4j.ogm.annotation.typeconversion.DateString;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity(label = "Cattle")
@@ -16,16 +16,29 @@ public class CattlePOJO {
     private Date birthday;
     private Double weight;
     @Relationship(type = "CHILD")
-    private Set<CattlePOJO> child;
+    private Set<CattlePOJO> children;
     @Relationship(type = "CHILD", direction = Relationship.INCOMING)
-    private Set<CattlePOJO> parent;
+    private Set<CattlePOJO> parents;
 
-    // No Arg Constructor
+    // Mandatory: No Arg Constructor
     public CattlePOJO() {}
+
+    public CattlePOJO(String sex, Date birthday, Double weight) {
+        this.sex = sex;
+        this.birthday = birthday;
+        this.weight = weight;
+    }
+
+    public void addChild(CattlePOJO child) {
+        if (this.children == null) {
+            this.children = new HashSet<CattlePOJO>();
+        }
+        this.children.add(child);
+    }
 
     @Override
     public String toString() {
-        return "c_id: " + this.id + "\nsex: " + sex + "\nbirthday: " + birthday + "\nweight: " + weight;
+        return "id: " + this.id + "\nsex: " + sex + "\nbirthday: " + birthday + "\nweight: " + weight;
     }
 
     /*** Getters and Setters ***/
