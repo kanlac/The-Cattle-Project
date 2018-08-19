@@ -47,6 +47,7 @@ public class CattlePOJO {
                 if (parent != this) map.put('s', parent);
             }
             res.add(map);
+
         }
 
         return res;
@@ -54,7 +55,7 @@ public class CattlePOJO {
 
     @Override
     public String toString() {
-        return "POJO<<<id: " + this.id + " sex: " + sex + " birthday: " + birthday + " weight: " + weight + ">>>";
+        return "POJO<<<\n   id: " + this.id + "\n   sex: " + sex + "\n   birthday: " + birthday + "\n   weight: " + weight + "\n>>>";
     }
 
     /*** Getters and Setters ***/
