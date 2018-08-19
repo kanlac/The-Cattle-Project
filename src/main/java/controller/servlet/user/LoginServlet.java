@@ -20,8 +20,6 @@ public class LoginServlet extends HttpServlet {
 
         if (dao.login(name_content, password_content)) {
 
-            System.out.println("登录成功！");
-
             HttpSession session = request.getSession();
             session.setAttribute("account", name_content);
             session.setMaxInactiveInterval(60 * 60 * 24 * 7);
@@ -29,8 +27,6 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/admin/query.jsp");
 
         } else {
-
-            System.out.println("认证失败.");
 
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
             rd.include(request, response);
