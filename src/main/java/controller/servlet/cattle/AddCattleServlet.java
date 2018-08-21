@@ -1,8 +1,7 @@
 package controller.servlet.cattle;
 
-import dao.CattleDao;
-import dao.impl.CattleDaoImpl;
 import model.CattlePOJO;
+import service.impl.CattleServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +18,7 @@ public class AddCattleServlet extends HttpServlet {
         CattlePOJO cattle = (cattleObj instanceof CattlePOJO ? (CattlePOJO) cattleObj : null);
         if (cattle == null) throw new ServletException("Casting cattleObj failed.");
 
-        CattleDao cattleDao = new CattleDaoImpl();
+        CattleServiceImpl cattleDao = new CattleServiceImpl();
         PrintWriter out = response.getWriter();
 
         System.out.println("create: " + cattleDao.createOrUpdate(cattle));

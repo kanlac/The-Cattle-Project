@@ -1,6 +1,6 @@
 package controller.servlet.user;
 
-import dao.impl.AdminDaoImpl;
+import service.impl.AdminServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +16,9 @@ public class LoginServlet extends HttpServlet {
         String name_content = request.getParameter("name_field");
         String password_content = request.getParameter("password_field");
 
-        AdminDaoImpl dao = new AdminDaoImpl();
+        AdminServiceImpl adminService = new AdminServiceImpl();
 
-        if (dao.login(name_content, password_content)) {
+        if (adminService.login(name_content, password_content)) {
 
             HttpSession session = request.getSession();
             session.setAttribute("account", name_content);
@@ -36,7 +36,6 @@ public class LoginServlet extends HttpServlet {
             out.close();
         }
 
-        dao.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

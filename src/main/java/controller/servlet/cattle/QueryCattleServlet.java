@@ -1,8 +1,7 @@
 package controller.servlet.cattle;
 
-import dao.CattleDao;
-import dao.impl.CattleDaoImpl;
 import model.CattlePOJO;
+import service.impl.CattleServiceImpl;
 import util.Neo4jSessionFactory;
 
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ public class QueryCattleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cattle_id = request.getParameter("id");
 
-        CattleDao cattleDao = new CattleDaoImpl();
+        CattleServiceImpl cattleDao = new CattleServiceImpl();
         PrintWriter out = response.getWriter();
         
         CattlePOJO target = cattleDao.find(Long.parseLong(cattle_id));
