@@ -5,16 +5,16 @@
     <title>添加牛的信息</title>
 </head>
 <body>
-    <p>欢迎你，<core:out value="${sessionScope.account}"/></p><a href="/LogoutServlet">注销</a><br/>
+    <p>欢迎你，<core:out value="${sessionScope.account}"/></p><a href="${pageContext.request.contextPath}/LogoutServlet">注销</a><br/>
 
     <h1>添加</h1>
 
-    <form action="/AddCattleServlet" method="post">
+    <form action="${pageContext.request.contextPath}/AddCattleServlet" method="post">
         性别：<input type="radio" name="sex" value="male"/>公 <input type="radio" name="sex" value="female"/>母 <br/>
         生日：<input type="date" name="birthday"/><br/>
-        体重：<input type="number" name="weight"/>kg<br/>
+        体重：<input type="text" name="weight"/>kg<br/>
         <p>--- 以下为选填项 ---</p><br/>
-        孩子编号：<input type="text" name="children_id"/><br/>
+        孩子编号：<input type="number" name="children_id"/><br/>
 
         <input type="reset" value="重置"/>
         <input type="submit" value="添加"/>
