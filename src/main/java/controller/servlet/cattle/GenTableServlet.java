@@ -21,7 +21,6 @@ public class GenTableServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sort_method = request.getParameter("sort");
         if (sort_method == null) sort_method = "";
-        System.out.println("sort_method = " + sort_method);
 
         CattleServiceImpl cattleService = new CattleServiceImpl();
         ArrayList<CattlePOJO> cattleList;

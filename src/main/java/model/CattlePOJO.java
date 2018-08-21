@@ -2,7 +2,6 @@ package model;
 
 import org.neo4j.ogm.annotation.*;
 import org.neo4j.ogm.annotation.typeconversion.DateLong;
-import scala.Char;
 
 import java.util.*;
 
