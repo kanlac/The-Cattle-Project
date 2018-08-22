@@ -34,24 +34,6 @@ public class CattlePOJO {
         this.children.add(child);
     }
 
-    public List<Map<Character, CattlePOJO>> getSpouseAndChildren() {
-        if (this.getChildren() == null) return null;
-
-        List<Map<Character, CattlePOJO>> res = new ArrayList<>();
-
-        for (CattlePOJO child : this.getChildren()) {
-            Map<Character, CattlePOJO> map = new HashMap<>();
-            map.put('c', child);
-            for (CattlePOJO parent : child.getParents()) {
-                if (parent != this) map.put('s', parent);
-            }
-            res.add(map);
-
-        }
-
-        return res;
-    }
-
     @Override
     public String toString() {
         return "POJO<<<\n   id: " + this.id + "\n   sex: " + sex + "\n   birthday: " + birthday + "\n   weight: " + weight + "\n>>>";
@@ -71,6 +53,12 @@ public class CattlePOJO {
         return birthday;
     }
 
+    public String getBirthdayStr() {
+        if (birthday == null) return "";
+        String time = String.valueOf(birthday.getTime());
+        return time.substring(0, 4) + "-" + time.substring(4, 6) + "-" + time.substring(6);
+    }
+
     public Double getWeight() {
         return weight;
     }
@@ -81,5 +69,52 @@ public class CattlePOJO {
 
     public ArrayList<CattlePOJO> getParents() {
         return parents;
+    }
+
+    public String getFatherId() {
+        if (parents != null) {
+            for (CattlePOJO f : parents) {
+                if (f.sex.equals("male"))
+                    return f.id.toString();
+            }
+        }
+        return "none";
+    }
+
+    public String getMotherId() {
+        if (parents != null) {
+            for (CattlePOJO m : parents) {
+                if (m.sex.equals("female"))
+                    return m.id.toString();
+            }
+        }
+        return "none";
+    }
+
+    public String getChildrenIds() {
+        if (children == null) return "none";
+        StringJoiner joiner = new StringJoiner(", ");
+        for (CattlePOJO c : children) {
+            joiner.add(c.id.toString());
+        }
+        return joiner.toString();
+    }
+
+    public List<Map<Character, CattlePOJO>> getSpouseAndChildren() {
+        if (this.children == null) return null;
+
+        List<Map<Character, CattlePOJO>> res = new ArrayList<>();
+
+        for (CattlePOJO child : this.getChildren()) {
+            Map<Character, CattlePOJO> map = new HashMap<>();
+            map.put('c', child);
+            for (CattlePOJO parent : child.parents) {
+                if (parent != this) map.put('s', parent);
+            }
+            res.add(map);
+
+        }
+
+        return res;
     }
 }
