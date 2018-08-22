@@ -78,7 +78,7 @@ public class CattlePOJO {
                     return f.id.toString();
             }
         }
-        return "none";
+        return "";
     }
 
     public String getMotherId() {
@@ -88,16 +88,17 @@ public class CattlePOJO {
                     return m.id.toString();
             }
         }
-        return "none";
+        return "";
     }
 
-    public String getChildrenIds() {
-        if (children == null) return "none";
-        StringJoiner joiner = new StringJoiner(", ");
+    public ArrayList<String> getChildrenIds() {
+        if (children == null) return null;
+        ArrayList<String> list = new ArrayList<>();
+
         for (CattlePOJO c : children) {
-            joiner.add(c.id.toString());
+            list.add(c.getId().toString());
         }
-        return joiner.toString();
+        return list;
     }
 
     public List<Map<Character, CattlePOJO>> getSpouseAndChildren() {

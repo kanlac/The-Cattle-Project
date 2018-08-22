@@ -21,13 +21,44 @@
     </tr>
     <core:forEach var="item" items="${list}">
         <tr>
-            <td><core:out value="${item.getId()}"/> </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/QueryCattleServlet?id=<core:out value='${item.getId()}'/>"><core:out value="${item.getId()}"/></a>
+            </td>
             <td><core:out value="${item.getSex()}"/> </td>
             <td><core:out value="${item.getBirthdayStr()}"/> </td>
             <td><core:out value="${item.getWeight()}"/> </td>
-            <td><core:out value="${item.getFatherId()}"/> </td>
-            <td><core:out value="${item.getMotherId()}"/> </td>
-            <td><core:out value="${item.getChildrenIds()}"/> </td>
+            <td>
+                <core:choose>
+                    <core:when test="${item.getFatherId() == ''}">
+                        无
+                    </core:when>
+                    <core:otherwise>
+                        <a href="${pageContext.request.contextPath}/QueryCattleServlet?id=<core:out value='${item.getFatherId()}'/>"><core:out value="${item.getFatherId()}"/></a>
+                    </core:otherwise>
+                </core:choose>
+            </td>
+            <td>
+                <core:choose>
+                    <core:when test="${item.getMotherId() == ''}">
+                        无
+                    </core:when>
+                    <core:otherwise>
+                        <a href="${pageContext.request.contextPath}/QueryCattleServlet?id=<core:out value='${item.getMotherId()}'/>"><core:out value="${item.getMotherId()}"/></a>
+                    </core:otherwise>
+                </core:choose>
+            </td>
+            <td>
+                <core:choose>
+                    <core:when test="${empty item.getChildrenIds()}">
+                        无
+                    </core:when>
+                    <core:otherwise>
+                        <core:forEach var="i" items="${item.getChildrenIds()}">
+                            <a href="${pageContext.request.contextPath}/QueryCattleServlet?id=<core:out value='${i}'/>"><core:out value="${i}"/></a>&nbsp;
+                        </core:forEach>
+                    </core:otherwise>
+                </core:choose>
+            </td>
         </tr>
     </core:forEach>
 </table>
