@@ -11,13 +11,13 @@
 
 <table>
     <tr>
-        <td>编号</td>
-        <td>性别</td>
-        <td>出生日期</td>
-        <td>体重</td>
-        <td>父</td>
-        <td>母</td>
-        <td>子</td>
+        <th>编号</th>
+        <th>性别</th>
+        <th>出生日期</th>
+        <th>体重</th>
+        <th>父</th>
+        <th>母</th>
+        <th>子</th>
     </tr>
     <core:forEach var="item" items="${list}">
         <tr>
