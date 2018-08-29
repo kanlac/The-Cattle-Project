@@ -28,15 +28,20 @@ public class CattlePOJO {
     }
 
     public void addChild(CattlePOJO child) {
-        if (this.children == null) {
+        if (this.children == null)
             this.children = new ArrayList<>();
-        }
         this.children.add(child);
+    }
+
+    public void addParent(CattlePOJO parent) {
+        if (this.parents == null)
+            this.parents = new ArrayList<>();
+        this.parents.add(parent);
     }
 
     @Override
     public String toString() {
-        return "POJO<<<\n   id: " + this.id + "\n   sex: " + sex + "\n   birthday: " + birthday + "\n   weight: " + weight + "\n>>>";
+        return "POJO<<<\n   id: " + this.id + "\n   sex: " + sex + "\n   birthday: " + getBirthdayStr() + "\n   weight: " + weight + "\n>>>";
     }
 
     /*** Getters and Setters ***/
