@@ -17,6 +17,7 @@ public class QueryCattleServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cattle_id = request.getParameter("id");
+        System.out.println("cattle_id = " + cattle_id);
 
         CattleServiceImpl cattleDao = new CattleServiceImpl();
         PrintWriter out = response.getWriter();
@@ -40,6 +41,6 @@ public class QueryCattleServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request, response);
     }
 }
