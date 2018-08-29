@@ -14,12 +14,12 @@
     <a href="${pageContext.request.contextPath}/GenTableServlet">查看所有</a>
 </div>
 
-<br/><br/>
+<br/>
 
 <div class="pedigree-lookup">
     谱系查询
     <form action="${pageContext.request.contextPath}/QueryCattleServlet" method="post">
-        编号：<input type="number" name="id"/>
+        编号：<input type="number" name="id"/><br/>
         <input type="submit" value="查看谱系图">
     </form>
 </div>

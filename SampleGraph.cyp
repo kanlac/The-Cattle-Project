@@ -33,5 +33,9 @@ RETURN n;
 MATCH (del:Cattle)
 DETACH DELETE del
 
+// delete by id
+MATCH (del:Cattle) WHERE ID(del) = 22
+DETACH DELETE del
+
 // check login
 MATCH (u:Admin) WHERE u.name = '吴' AND u.password = '655' RETURN u

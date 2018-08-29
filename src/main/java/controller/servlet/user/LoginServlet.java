@@ -1,6 +1,7 @@
 package controller.servlet.user;
 
 import service.impl.AdminServiceImpl;
+import util.Neo4jSessionFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,5 +41,11 @@ public class LoginServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        Neo4jSessionFactory.getInstance().close();
     }
 }

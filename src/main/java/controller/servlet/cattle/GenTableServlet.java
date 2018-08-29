@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 @WebServlet(name = "GenTableServlet", urlPatterns = {"/GenTableServlet"})
 public class GenTableServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
