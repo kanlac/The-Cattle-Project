@@ -58,7 +58,8 @@ Neo4j 对 OGM 的定义：
 ---
 
 #### To-dos
-- QueryCattleServlet 中的 `getRequestDispatcher("PATH").forward()` 无效。
+- QueryCattleServlet 中的 `getRequestDispatcher("PATH").forward()` 无效；
+- 按照 Maven 的标准目录结构，数据库的配置信息应该保存在 src/main/resources 较好（该目录用于存放项目的各种配置文件）。
 
 #### 一些细节
 - `SessionFactory` 的实例需要手动关闭（`close()`），否则会在关闭程序时出现线程错误。
