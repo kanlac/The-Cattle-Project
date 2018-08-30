@@ -10,6 +10,8 @@
 
 <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
 
+<a href="${pageContext.request.contextPath}/admin/query.jsp">返回</a><br/><br/>
+
 <div class="filter-items">
     性别：<core:out value="${requestScope['condition-sex']}"/>
     年龄：<core:out value="${requestScope['condition-age']}"/>

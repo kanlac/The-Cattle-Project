@@ -5,10 +5,13 @@
 
 <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
 
+<a href="${pageContext.request.contextPath}/admin/query.jsp">返回</a><br/><br/>
+
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=id">按编号排序</a>
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=birthday">按出生日期来排序</a>
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=birthday_desc">出生日期倒序</a>
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=weight">按体重排序</a><br/>
+
 
 <core:set var="list" value="${cattleList}"/>
 

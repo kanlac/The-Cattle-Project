@@ -7,6 +7,8 @@
 <body>
 <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
 
+<a href="${pageContext.request.contextPath}/admin/query.jsp">返回</a><br/><br/>
+
 <h1>添加</h1>
 
 <form action="${pageContext.request.contextPath}/AddCattleServlet" method="post">

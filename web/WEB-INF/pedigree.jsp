@@ -13,9 +13,7 @@
 
 <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
 
-<div class="admin_info">
-    <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="#">注销</a></p>
-</div>
+<a href="${pageContext.request.contextPath}/admin/query.jsp">返回</a><br/><br/>
 
 <div class="nav">
     <p>查询</p>
