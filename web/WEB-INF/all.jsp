@@ -2,6 +2,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
+
+<p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
+
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=id">按编号排序</a>
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=birthday">按出生日期来排序</a>
 <a href="${pageContext.request.contextPath}/GenTableServlet?sort=birthday_desc">出生日期倒序</a>
