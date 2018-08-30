@@ -26,23 +26,23 @@
 
 <div class="filter-lookup">
     条件查询
-    <form action="#" method="post">
+    <form action="${pageContext.request.contextPath}/ScreenCattleServlet" method="post">
         性别：
-        <input type="radio" name="selector" id="n-option"/>
+        <input type="radio" name="filter-sex" id="n-option" value="none"/>
         <label for="n-option">不限</label>
-        <input type="radio" name="selector" id="m-option"/>
+        <input type="radio" name="filter-sex" id="m-option" value="male"/>
         <label for="m-option">公</label>
-        <input type="radio" name="selector" id="f-option"/>
+        <input type="radio" name="filter-sex" id="f-option" value="female"/>
         <label for="f-option">母</label>
         <br/>
         年龄：
-        <input type="number" name="a-low"/> - <input type="number" name="a-high"/>
+        <input type="number" name="filter-age-low"/> - <input type="number" name="filter-age-high"/>
         <br/>
         出生日期：
-        <input type="date" name="origin"/> - <input type="date" name="close"/>
+        <input type="date" name="filter-birth-origin"/> - <input type="date" name="filter-birth-close"/>
         <br/>
         体重：
-        <input type="number" name="w-low"/> - <input type="number" name="w-high"/>
+        <input type="number" name="filter-weight-low"/> - <input type="number" name="filter-weight-high"/>
         <br/>
 
         <input type="submit" value="查看表格"/>
