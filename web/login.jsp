@@ -2,14 +2,18 @@
 <html>
 <head>
     <title>登录</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
 </head>
 <body>
-    <h1>登录</h1>
 
-    <form action="/LoginServlet" method="post">
-        <input name="name_field" type="text"/>
-        <input name="password_field" type="password"/>
-        <button type="submit">登录</button>
-    </form>
+<form action="/LoginServlet" method="post" class="login-prompt">
+    <h1 class="login-text">登录</h1>
+    <input name="name_field" type="text" class="login-input-area"/><br/><br/><br/>
+    <input name="password_field" type="password" class="login-input-area"/><br/><br/>
+    <button type="submit">登录</button>
+</form>
+
 </body>
 </html>
