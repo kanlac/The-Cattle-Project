@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         AdminServiceImpl adminService = new AdminServiceImpl();
 
-        if (adminService.login(name_content, password_content)) {
+        if (!name_content.equals("") && !password_content.equals("") && adminService.login(name_content, password_content)) {
 
             HttpSession session = request.getSession();
             session.setAttribute("account", name_content);

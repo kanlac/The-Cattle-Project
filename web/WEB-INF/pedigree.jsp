@@ -21,9 +21,11 @@
     <a href="#">图片新闻</a>
 </div>
 
+<br/><br/>
+
 <div class="parents_column">
+    父母亲：
     <div class="parent_upper">
-        parent_upper
         <core:choose>
             <core:when test="${size_p < 1}">
                 <a href="#">Add parent for this particular cattle.</a>
@@ -34,7 +36,6 @@
         </core:choose>
     </div>
     <div class="parent_lower">
-        parent_lower
         <core:choose>
             <core:when test="${size_p < 2}">
                 <a href="#">Add parent for this particular cattle.</a>
@@ -46,15 +47,20 @@
     </div>
 </div>
 
+<br/><br/>
+
 <div class="center_column">
-    center <core:out value="${center}"/>
+    当前节点：<br/>
+    <core:out value="${center}"/>
 </div>
 
+<br/><br/>
+
 <div class="sc_column">
+    家庭：
     <core:forEach var="map" items="${sc}">
-        SC {{{ spouse: <core:out value="${map.get(Character.valueOf('s'))}"/> child: <core:out value="${map.get(Character.valueOf('c'))}"/> }}}
+        <br/> {{{<br/> 配偶： <core:out value="${map.get(Character.valueOf('s'))}"/> <br/>孩子： <core:out value="${map.get(Character.valueOf('c'))}"/> <br/>}}}
     </core:forEach>
-    SC {{{ Add spouse or children }}}
 </div>
 
 </body>

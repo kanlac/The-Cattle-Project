@@ -1,9 +1,12 @@
 package service.impl;
 
 import model.AdminPOJO;
+import org.neo4j.driver.v1.Session;
+import org.neo4j.ogm.model.Result;
 import service.AdminService;
 import service.GenericService;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +40,9 @@ public class AdminServiceImpl implements GenericService<AdminPOJO>, AdminService
         Map<String, Object> params = new HashMap<>();
         params.put("n", name);
         params.put("p", password);
-        return session.query(query, params) != null;
+        for (Map<String, Object> i : session.query(query, params))
+            return true;
+        return false;
     }
 
 }

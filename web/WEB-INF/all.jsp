@@ -15,7 +15,7 @@
 
 <core:set var="list" value="${cattleList}"/>
 
-<table>
+<table border="1" cellspacing="0">
     <tr>
         <th>编号</th>
         <th>性别</th>
