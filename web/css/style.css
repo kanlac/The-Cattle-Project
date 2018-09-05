@@ -1,23 +1,16 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanssc.css);
-
 .nav-item {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-.nav-item a {
-    text-decoration: none;
-    float: right;
-    color: red;
-}
-
-.login-ref {
+    float: left;
     padding-top: 1%;
     padding-left: 1%;
 }
 
-.login-ref a {
+.nav-item a p {
     font-size: 16px;
+}
+
+/* Home */
+
+.login-ref {
     color: #4A4A4A;
 }
 
@@ -59,14 +52,16 @@
     padding-bottom: 3em;
 }
 
+/* Login */
+
 .login-prompt {
     padding-top: 20%;
     margin: auto;
-    width: 50%;
+    width: 320px;
     text-align: center;
 }
 
-.login-text {
+.login-title {
     font-size: 3em;
     color: #4A4A4A;
     padding-bottom: 0.7em;
@@ -78,4 +73,39 @@
     opacity: 0.3;
     border: 1px solid #000000;
     border-radius: 6px;
+}
+
+.sign-in-button {
+    font-family: Futura;
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    float: right;
+    color: #28CA42;
+}
+
+/* Query */
+
+.general-section {
+    padding-bottom: 4em;
+    margin: auto;
+    width: 30%;
+    height: 50px;
+    text-align: center;
+}
+
+.prefs-section {
+    padding-top: 15%;
+}
+
+.pedigree-lookup-section {
+
+}
+
+.filter-lookup-section {
+}
+
+.input-box {
+    width: 70px;
 }

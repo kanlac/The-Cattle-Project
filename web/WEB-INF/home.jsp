@@ -10,8 +10,8 @@
 </head>
 <body>
 
-<div class="login-ref">
-    <a href="${pageContext.request.contextPath}/login.jsp">登录</a>
+<div class="nav-item">
+    <a class="login-ref" href="${pageContext.request.contextPath}/login.jsp">登录</a>
 </div>
 
 <div class="img-area" style="margin: auto; width: 1050px;">

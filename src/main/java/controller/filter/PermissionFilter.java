@@ -23,7 +23,7 @@ public class PermissionFilter implements Filter {
             req.getRequestDispatcher("/login.jsp").include(req, resp);
 
             PrintWriter out = resp.getWriter();
-            out.print("<p style='color: red;'>请先登录再进行管理员操作。</p>");
+            out.print("<p style='color: red; text-align: center'>请先登录再进行管理员操作。</p>");
             out.close();
 
         } else {

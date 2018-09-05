@@ -9,10 +9,10 @@
 <body>
 
 <form action="/LoginServlet" method="post" class="login-prompt">
-    <h1 class="login-text">登录</h1>
+    <h1 class="login-title">登录</h1>
     <input name="name_field" type="text" class="login-input-area"/><br/><br/><br/>
     <input name="password_field" type="password" class="login-input-area"/><br/><br/>
-    <button type="submit">登录</button>
+    <button class="sign-in-button" type="submit">登录</button>
 </form>
 
 </body>
