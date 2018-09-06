@@ -7,6 +7,7 @@ public class ImagePOJO {
 
     private Long id;
     private String filename;
+    private String description;
 
     // Mandatory: No Arg Constructor
     public ImagePOJO() {}
@@ -19,5 +20,9 @@ public class ImagePOJO {
 
     public String getFilename() {
         return filename;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

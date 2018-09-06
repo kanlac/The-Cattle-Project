@@ -22,14 +22,20 @@ public class HomeServlet extends HttpServlet {
         ImageServiceImpl imageService = new ImageServiceImpl();
         ArrayList<ImagePOJO> imageList = (ArrayList<ImagePOJO>)imageService.findAll();
 
-        String alpha = imageList.get(0).getFilename();
-        String beta = imageList.get(1).getFilename();
-        String gamma = imageList.get(2).getFilename();
-        System.out.println("gamma = " + gamma);
+        String alpha_image = imageList.get(0).getFilename();
+        String alpha_desc = imageList.get(0).getDescription();
+        String beta_image = imageList.get(1).getFilename();
+        String beta_desc = imageList.get(1).getDescription();
+        String gamma_image = imageList.get(2).getFilename();
+        String gamma_desc = imageList.get(2).getDescription();
 
-        getServletContext().setAttribute("alpha", alpha);
-        getServletContext().setAttribute("beta", beta);
-        getServletContext().setAttribute("gamma", gamma);
+
+        getServletContext().setAttribute("alpha_image", alpha_image);
+        getServletContext().setAttribute("alpha_desc", alpha_desc);
+        getServletContext().setAttribute("beta_image", beta_image);
+        getServletContext().setAttribute("beta_desc", beta_desc);
+        getServletContext().setAttribute("gamma_image", gamma_image);
+        getServletContext().setAttribute("gamma_desc", gamma_desc);
 
         request.getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
     }

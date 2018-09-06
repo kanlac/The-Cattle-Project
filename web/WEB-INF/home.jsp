@@ -16,16 +16,16 @@
 
 <div class="img-area" style="margin: auto; width: 1050px;">
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/${alpha}" width="280" height="175">
-        <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
+        <img src="${pageContext.request.contextPath}/img/${alpha_image}" width="280" height="175">
+        <p>${alpha_desc}</p>
     </div>
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/${beta}" width="280" height="175">
-        <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
+        <img src="${pageContext.request.contextPath}/img/${beta_image}" width="280" height="175">
+        <p>${beta_desc}</p>
     </div>
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/${gamma}" width="280" height="175">
-        <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
+        <img src="${pageContext.request.contextPath}/img/${gamma_image}" width="280" height="175">
+        <p>${gamma_desc}</p>
     </div>
 </div>
 
