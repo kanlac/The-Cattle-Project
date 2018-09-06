@@ -63,7 +63,7 @@ public class FileUploadServlet extends HttpServlet {
         endPos = endPos - 1;
 
         // set path to save
-        String realPath = getServletContext().getRealPath("/") + "images";
+        String realPath = getServletContext().getRealPath("/") + "img";
         File fileUpload = new File(realPath);
         if (!fileUpload.exists()) {
             fileUpload.mkdir();

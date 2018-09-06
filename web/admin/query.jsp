@@ -14,6 +14,12 @@
     <p>欢迎你，<core:out value="${sessionScope.account}"/>。<a href="${pageContext.request.contextPath}/LogoutServlet">注销</a></p><br/>
 </div>
 
+<div class="function-menu">
+    <p>查询</p>
+    <a href="#">图片新闻</a>
+    <a href="#">文字新闻</a>
+</div>
+
 <div class="general-section prefs-section">
     首选项<br/><br/>
     <a href="appendCattle.jsp">录入新信息</a>

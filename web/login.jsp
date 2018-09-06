@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<div class="nav-item">
+    <a href="${pageContext.request.contextPath}/home">主页</a>
+</div>
+
 <form action="/LoginServlet" method="post" class="login-prompt">
     <h1 class="login-title">登录</h1>
     <input name="name_field" type="text" class="login-input-area"/><br/><br/><br/>
