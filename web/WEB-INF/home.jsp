@@ -16,15 +16,15 @@
 
 <div class="img-area" style="margin: auto; width: 1050px;">
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/farm-a.jpg" width="280" height="175">
+        <img src="${pageContext.request.contextPath}/img/${alpha}" width="280" height="175">
         <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
     </div>
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/farm-b.jpg" width="280" height="175">
+        <img src="${pageContext.request.contextPath}/img/${beta}" width="280" height="175">
         <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
     </div>
     <div class="img-alpha" style="float: left; width: 280px; margin: 30px;">
-        <img src="${pageContext.request.contextPath}/img/farm-c.jpg" width="280" height="175">
+        <img src="${pageContext.request.contextPath}/img/${gamma}" width="280" height="175">
         <p>忥趼枷灟溠筤优伈峇坌昅囷沇溰屮。</p>
     </div>
 </div>
