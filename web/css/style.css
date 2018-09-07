@@ -137,7 +137,7 @@
 }
 
 .option-text {
-    font-family: .SFNSDisplay;
+    font-family: SFNSDisplay;
     font-size: 13px;
     color: #4A4A4A;
     margin-top: 10px;
@@ -146,4 +146,11 @@
 
 .input-box {
     width: 70px;
+}
+
+/* Pedigree */
+
+.pedigree-group {
+    font-family: PingFangSC-Semibold;
+    font-size: 10px;
 }
